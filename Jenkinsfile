@@ -24,7 +24,7 @@ def function(String dockerImageName){
     }
   
 }
-
+}
     node{
 
       dir('prediction-service') {
