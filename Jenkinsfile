@@ -4,9 +4,6 @@ def function(String dockerImageName){
         checkout scm
     }
   stage('Build model') {
-    sh 'python build.py'
-  }
-  stage('Build model') {
       dir('prediction-service-builder')  {
         sh './gradlew build'
         sh './gradlew jettyRunWar'
