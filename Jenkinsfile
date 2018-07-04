@@ -18,7 +18,7 @@ def function(String dockerImageName){
   }
  
   stage('packaging') {
-    dir('target')  {
+    dir('prediction-service-builder/target')  {
     sh 'ls'
     sh 'pwd'
     sh 'jar -cvf prediction.war *'
