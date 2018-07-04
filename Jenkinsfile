@@ -3,6 +3,11 @@ def function(String dockerImageName){
     stage('checkout') {
         checkout scm
     }
+    stage('clean') {
+    dir('prediction-service-builder')  {
+    sh './gradlew clean build'
+    }
+                }
   stage('Build model') {
       dir('prediction-service-builder')  {
         sh './gradlew build'
