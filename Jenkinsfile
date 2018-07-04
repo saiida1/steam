@@ -22,7 +22,6 @@ def function(String dockerImageName){
     sh 'ls'
     sh 'pwd'
     sh 'jar -cvf prediction.war *'
-    stash includes : 'prediction.war/*', name: 'prediction'
     }
   
 }
