@@ -77,6 +77,10 @@ public class MakeWarServlet extends HttpServlet {
       logger.info("tmpDir {}", tmpDir);
 
       //  create output directories
+    /*  String path_string = "~test1/steam/prediction-service-builder/jar";
+      File jar = new File("~/test1/steam/prediction-service-builder/jar", "jar");
+      if (!jar.mkdir())
+        throw new Exception("Can't create output directory (jar)");*/
       File webInfDir = new File(tmpDir.getPath(), "WEB-INF");
       if (!webInfDir.mkdir())
         throw new Exception("Can't create output directory (WEB-INF)");
@@ -234,6 +238,11 @@ public class MakeWarServlet extends HttpServlet {
       if (resjar == null)
         throw new Exception("Can't create war of compiler output");
       logger.info("war created from {} files, size {}", files.length, resjar.length);
+      //copy resjar
+      String destination = "target";
+      File destDir = new File(destination);
+      FileUtils.copyDirectoryToDirectory(tmpDir, destDir);
+      Runtime.getRuntime().exec("jar -cvf prediction.war ../../../../../../target/* ");
 
       // send jar back
       ServletOutputStream sout = response.getOutputStream();
@@ -274,4 +283,3 @@ public class MakeWarServlet extends HttpServlet {
   }
 
 }
-
