@@ -18,12 +18,12 @@ def function(String dockerImageName){
   }
  
   stage('packaging') {
-    dir('prediction-service-builder/target')  {
-    sh 'ls'
-    sh 'pwd'
+    dir('prediction-service-builder')  {
+    sh 'mv target/**/* target'   
+    dir('target')  {
     sh 'jar -cvf prediction.war *'
     }
-  
+    }
 }
 }
     node{
