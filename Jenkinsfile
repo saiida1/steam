@@ -19,7 +19,7 @@ def function(String dockerImageName){
  
   stage('packaging') {
     dir('target')  {
-    sh 'jar -cvf prediction.war **/*'
+    sh 'jar -cvf prediction.war *'
     stash includes : 'prediction.war/*', name: 'prediction'
     }
   
