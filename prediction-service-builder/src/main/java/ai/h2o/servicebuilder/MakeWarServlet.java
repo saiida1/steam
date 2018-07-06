@@ -245,7 +245,7 @@ public class MakeWarServlet extends HttpServlet {
       Runtime.getRuntime().exec("jar -cvf prediction.war ../../../../../../target/* ");
 
       // send jar back
-      ServletOutputStream sout = response.getOutputStream();
+   /*   ServletOutputStream sout = response.getOutputStream();
       response.setContentType("application/octet-stream");
       String outputFilename = predictorClassName.length() > 0 ? predictorClassName : "h2o-predictor";
       response.setHeader("Content-disposition", "attachment; filename=" + outputFilename + ".war");
@@ -255,7 +255,7 @@ public class MakeWarServlet extends HttpServlet {
       response.setStatus(HttpServletResponse.SC_OK);
 
       Long elapsedMs = System.currentTimeMillis() - startTime;
-      logger.info("Done war creation in {} ms", elapsedMs);
+      logger.info("Done war creation in {} ms", elapsedMs);*/
     }
     catch (Exception e) {
       logger.error("doPost failed ", e);
