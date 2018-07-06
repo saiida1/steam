@@ -21,9 +21,9 @@ def function(String dockerImageName){
  
   stage('packaging') {
     dir('prediction-service-builder')  {
-    sh 'mv target/**/* target'   
-    sh 'rm -r makeWar*'   
+    sh 'mv target/**/* target'    
     dir('target')  {
+    sh 'rm -r makeWar*'  
     sh 'jar -cvf prediction.war *'
     }
     }
