@@ -268,16 +268,16 @@ public class MakeWarServlet extends HttpServlet {
       response.getWriter().write(Arrays.toString(e.getStackTrace()));
       response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
     }
-    finally {
+    //finally {
       // if the temp directory is still there we delete it
-      if (tmpDir != null && tmpDir.exists()) {
-        try {
-          FileUtils.deleteDirectory(tmpDir);
-        }
-        catch (IOException e) {
-          logger.error("Can't delete tmp directory");
-        }
-      }
+     // if (tmpDir != null && tmpDir.exists()) {
+      //  try {
+       //   FileUtils.deleteDirectory(tmpDir);
+       // }
+       // catch (IOException e) {
+       //   logger.error("Can't delete tmp directory");
+       // }
+     // }
     }
 
   }
