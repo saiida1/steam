@@ -26,6 +26,7 @@ def function(String dockerImageName){
     sh 'rm -r makeWar*'  
     sh 'jar -cvf prediction.war *'
     }
+     stash includes : 'target/*.war', name: 'prediction.war'
     }
 }
 }
