@@ -31,7 +31,9 @@ def function(String dockerImageName){
 }
 }
     node{
-
+    triggers {
+        cron('H 4/* 0 0 1-5')
+    }
       dir('prediction-service') {
         stage('predictionservice') {
           echo "** prediction service micro-service ***"
