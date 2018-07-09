@@ -11,7 +11,7 @@ pipeline {
         }
         stage('clean') {
             steps {
-   		        dir('prediction-service/prediction-service-builder') {
+   		        dir('prediction-service-builder') {
                 sh './gradlew clean build'
               }
             }
@@ -19,7 +19,7 @@ pipeline {
 
         stage('Build model') {
             steps {
-   		        dir('prediction-service/prediction-service-builder') {
+   		        dir('prediction-service-builder') {
     		        sh './gradlew build'
     			      sh 'chmod +x script.sh'
     			      sh './script.sh'
@@ -28,7 +28,7 @@ pipeline {
 	      }
         stage('packaging') {
             steps {
-   		        dir('prediction-service/prediction-service-builder') {
+   		        dir('prediction-service-builder') {
     		        sh 'mv target/**/* target'
                 dir('target') {
       		        sh 'rm -r makeWar*'
